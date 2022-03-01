@@ -4,11 +4,47 @@
 
 <button (click)="changeTitle()">Change title</button>
 
-<input type="" [(ngModel)] = "rockBandName" (keydown.enter)="addRockBand()"> {{rockBandName}}
+<input type="" [(ngModel)] = "rockBandName" (keydown.enter)="addRockBand()"> 
+
+<h1>{{rockBandName}}</h1>
+
 <button (click)="addRockBand()">Agregar banda</button>
+<button (click)="vaciar()">Vaciar</button>
 
 <ul>
-  <li *ngFor="let rock of rockBands">
-    {{ rock }}
+  <li *ngIf="rockBands.length === 0">
+    No hay bandas de rock
+  </li>
+  <li *ngFor="let rock of rockBands; index as i">
+    {{ rock }} {{i + 1}}
+    <strong *ngIf="i === 0"> Este es el primero</strong>
+    <button (click)="deleteItem(i)">Delete</button>
+    <button (click)="updateItem(i)">Update</button>
   </li>
 </ul>
+
+<!--<div *ngIf="rockBandName==='alex'"> Es Alex</div>
+
+<div *ngIf="rockBandName==='julian'"> Es Julian</div>
+
+<div *ngIf="rockBandName==='salazar'"> Es Salazar</div>-->
+
+<div [ngSwitch]="rockBandName">
+  <p *ngSwitchCase="'david'">es david</p>
+  <p *ngSwitchCase="'alex'">es alex</p>
+  <p *ngSwitchCase="'victor'">es victor</p>
+  <p *ngSwitchCase="'dani'">es dani</p>
+  <p *ngSwitchDefault>No hace match</p>
+</div>
+
+<ul>
+  <li *ngFor="let user of users">
+    Nombre: {{user.name}}
+    Edad: {{user.age}}
+    Soltero: {{user.isSingle ? 'Si' : 'No'}}
+    image: {{user.avatar}}
+    <img [src]="user.avatar" alt="">
+  </li>
+</ul>
+
+<app-product-list></app-product-list>

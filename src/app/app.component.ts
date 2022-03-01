@@ -1,5 +1,13 @@
 import { Component } from '@angular/core';
 
+import {Product} from './models/product.model'
+interface User{
+  name: string;
+  age: number;
+  isSingle?: boolean;
+  avatar: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +19,51 @@ export class AppComponent
   name = 'alex';
   rockBandName = '';
 
-  rockBands = ['acdc', 'heroes del silencio', 'mago'];
+  rockBands: string[] = ['acdc', 'heroes del silencio', 'mago'];
+
+  users: User[] = 
+  [
+    {
+      name: 'Zakas',
+      age: 25,
+      isSingle: false,
+      avatar: 'assets/images/desayuno.jpg',
+    },
+    {
+      name: 'Salazar',
+      age: 20,
+      isSingle: false,
+      avatar: 'assets/images/desayuno1.jpg',
+    },
+  ];
+
+  products: Product[] = 
+  [
+    {
+      title: 'Producto 1',
+      price: 200,
+      text: 'super desayuno',
+      image: 'assets/images/desayuno.jpg'
+    },
+    {
+      title: 'Producto 2',
+      price: 250,
+      text: 'super desayuno',
+      image: 'assets/images/desayuno1.jpg'
+    },
+    {
+      title: 'Producto 3',
+      price: 300,
+      text: 'super desayuno',
+      image: 'assets/images/desayuno2.jpg'
+    },
+    {
+      title: 'Producto 4',
+      price: 350,
+      text: 'super desayuno',
+      image: 'assets/images/desayuno3.jpg'
+    }
+  ]
 
   public changeTitle()
   {
@@ -22,5 +74,20 @@ export class AppComponent
   {
     this.rockBands.push(this.rockBandName);
     this.rockBandName = '';
+  }
+
+  public vaciar()
+  {
+    this.rockBands = [];
+  }
+
+  public deleteItem(index: number)
+  {
+    this.rockBands.splice(index, 1);
+  }
+
+  public updateItem(index: number)
+  {
+    this.rockBands[index] = 'se cambio';
   }
 }
