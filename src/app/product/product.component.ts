@@ -9,8 +9,11 @@ import { Product } from './../models/product.model';
 })
 export class ProductComponent
 {
-    @Input() product: Product;
+    @Input()
+    product!: Product;
     @Output() clickedProduct = new EventEmitter<number>();
+
+    today = new Date();
 
     viewDetail()
     {

@@ -7,12 +7,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ReversePipe } from './reverse.pipe';
+import { DateFormatPipe } from './date-format.pipe';
+import { ListComponent } from './components/list/list.component';
+import { FibonacciComponent } from './pipes/fibonacci/fibonacci.component';
+import { FibonacciPipe } from './pipes/fibonacci.pipe';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    ReversePipe,
+    DateFormatPipe,
+    ListComponent,
+    FibonacciComponent,
+    FibonacciPipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

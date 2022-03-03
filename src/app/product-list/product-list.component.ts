@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit {
       id: 1,
       title: 'Producto 1',
       price: 200,
-      text: 'super desayuno',
+      text: 'super desayuno tremenda locura',
       image: 'assets/images/desayuno.jpg'
     },
     {
@@ -44,6 +44,11 @@ export class ProductListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClickedProduct(id: number)
+  {
+    console.log('clicked', id);
   }
 
 }
